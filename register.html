@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donor Registration - DevDuo Blood Portal</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="bg-red-600 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2">
+                <span class="text-3xl">🩸</span>
+                <span class="text-xl md:text-2xl font-bold tracking-wide">DevDuo Blood Portal</span>
+            </a>
+            <a href="index.html" class="text-sm font-semibold hover:underline flex items-center gap-1">
+                ← হোম পেজে ফিরে যান
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Registration Section -->
+    <main class="flex-grow flex items-center justify-center p-4 md:p-8">
+        <div class="bg-white w-full max-w-2xl rounded-2xl shadow-sm border border-slate-200 p-6 md:p-10 my-6">
+            
+            <!-- Page Title -->
+            <div class="text-center mb-8">
+                <span class="bg-red-100 text-red-700 font-bold text-xs uppercase px-3 py-1 rounded-full">Become a Hero</span>
+                <h2 class="text-2xl md:text-3xl font-extrabold text-slate-900 mt-2">রক্তদাতা হিসেবে রেজিস্ট্রেশন করুন</h2>
+                <p class="text-slate-500 text-sm mt-1">আপনার প্রদত্ত রক্ত বাঁচাতে পারে একটি অমূল্য জীবন। ফর্মটি সঠিকভাবে পূরণ করুন।</p>
+            </div>
+
+            <!-- Form -->
+            <form action="#" method="POST" class="space-y-6">
+                
+                <!-- Full Name -->
+                <div>
+                    <label for="fullName" class="block text-sm font-semibold text-slate-700 mb-1">পূর্ণ নাম <span class="text-red-500">*</span></label>
+                    <input type="text" id="fullName" name="fullName" required placeholder="আপনার পুরো নাম লিখুন" 
+                        class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-slate-800 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition">
+                </div>
+
+                <!-- Phone & Blood Group -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="phone" class="block text-sm font-semibold text-slate-700 mb-1">মোবাইল নম্বর <span class="text-red-500">*</span></label>
+                        <input type="tel" id="phone" name="phone" required placeholder="017XXXXXXXX" 
+                            class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-slate-800 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition">
+                    </div>
+                    <div>
+                        <label for="bloodGroup" class="block text-sm font-semibold text-slate-700 mb-1">রক্তের গ্রুপ <span class="text-red-500">*</span></label>
+                        <select id="bloodGroup" name="bloodGroup" required 
+                            class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-slate-800 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition bg-white">
+                            <option value="">গ্রুপ নির্বাচন করুন</option>
+                            <option value="A+">A+ (এ পজিটিভ)</option>
+                            <option value="A-">A- (এ নেগেটিভ)</option>
+                            <option value="B+">B+ (বি পজিটিভ)</option>
+                            <option value="B-">B- (বি নেগেটিভ)</option>
+                            <option value="O+">O+ (ও পজিটিভ)</option>
+                            <option value="O-">O- (ও নেগেটিভ)</option>
+                            <option value="AB+">AB+ (এবি পজিটিভ)</option>
+                            <option value="AB-">AB- (এবি নেগেটিভ)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Location: District & Area -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="district" class="block text-sm font-semibold text-slate-700 mb-1">জেলা <span class="text-red-500">*</span></label>
+                        <select id="district" name="district" required 
+                            class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-slate-800 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition bg-white">
+                            <option value="">জেলা নির্বাচন করুন</option>
+                            <option value="dhaka">ঢাকা</option>
+                            <option value="chattogram">চট্টগ্রাম</option>
+                            <option value="rajshahi">রাজশাহী</option>
+                            <option value="khulna">খুলনা</option>
+                            <option value="sylhet">সিলেট</option>
+                            <option value="barishal">বরিশাল</option>
+                            <option value="rangpur">রংপুর</option>
+                            <option value="mymensingh">ময়মনসিংহ</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="area" class="block text-sm font-semibold text-slate-700 mb-1">উপজেলা / এলাকা <span class="text-red-500">*</span></label>
+                        <input type="text" id="area" name="area" required placeholder="যেমন: মিরপুর, ধানমন্ডি" 
+                            class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-slate-800 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition">
+                    </div>
+                </div>
+
+                <!-- Last Donation Date -->
+                <div>
+                    <label for="lastDonation" class="block text-sm font-semibold text-slate-700 mb-1">সর্বশেষ রক্তদানের তারিখ</label>
+                    <input type="date" id="lastDonation" name="lastDonation" 
+                        class="w-full border border-slate-300 rounded-lg px-4 py-2.5 text-slate-800 focus:ring-2 focus:ring-red-500 focus:border-transparent outline-none transition">
+                    <p class="text-xs text-slate-400 mt-1">যদি আগে কখনো রক্ত না দিয়ে থাকেন, তবে ঘরটি ফাঁকা রাখুন। (৯০ দিনের কুলডাউন স্বয়ংক্রিয়ভাবে হিসাব করা হবে)</p>
+                </div>
+
+                <!-- Consent Checkbox -->
+                <div class="flex items-start space-x-2 pt-2">
+                    <input type="checkbox" id="terms" required class="mt-1 accent-red-600 rounded">
+                    <label for="terms" class="text-xs text-slate-600">
+                        আমি অঙ্গীকার করছি যে প্রদত্ত তথ্যসমূহ সঠিক এবং জরুরী প্রয়োজনে রোগীর স্বজনদের সরাসরি যোগাযোগের অনুমতি দিচ্ছি।
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 active:scale-[0.99] text-white font-bold py-3 rounded-lg shadow-md hover:shadow-lg transition duration-200">
+                    ডোনার হিসেবে সাইন-আপ সম্পন্ন করুন
+                </button>
+            </form>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-4 border-t border-slate-800 text-center text-xs">
+        <p>© 2026 DevDuo Local Blood Portal. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
