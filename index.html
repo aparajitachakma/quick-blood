@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Blood Donor Discovery & Emergency Portal</title>
+    <!-- Tailwind CSS CDN (For quick setup) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+
+    <!-- Header Section -->
+    <header class="bg-red-600 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <span class="text-3xl">🩸</span>
+                <h1 class="text-xl md:text-2xl font-bold tracking-wide">DevDuo Blood Bank</h1>
+            </div>
+            <a href="#register" class="bg-white text-red-600 hover:bg-red-50 px-4 py-2 rounded-lg font-semibold text-sm transition">
+                ডোনার হিসেবে সাইন-আপ করুন
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto px-4 py-8 flex-grow space-y-12">
+
+        <!-- Emergency Banner & Filter Engine -->
+        <section class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
+            <div class="max-w-3xl mx-auto text-center mb-8">
+                <span class="bg-red-100 text-red-700 font-bold text-xs uppercase px-3 py-1 rounded-full">Emergency Portal</span>
+                <h2 class="text-2xl md:text-4xl font-extrabold text-slate-900 mt-3">জরুরী রক্তের ডোনার খুঁজুন</h2>
+                <p class="text-slate-600 mt-2 text-sm md:text-base">নিচের ফিল্টার ব্যবহার করে আপনার নিকটস্থ রক্তের ডোনার খুঁজে সাথে সাথে কল দিন।</p>
+            </div>
+
+            <!-- Filter Controls -->
+            <form class="grid grid-cols-1 md:grid-cols-3 gap-4 bg-slate-50 p-4 rounded-xl border border-slate-200">
+                <!-- Blood Group Filter -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">রক্তের গ্রুপ</label>
+                    <select class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-slate-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <option value="">সকল গ্রুপ (All Groups)</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                    </select>
+                </div>
+
+                <!-- District Filter -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">জেলা / এলাকা</label>
+                    <select class="w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-slate-700 focus:outline-none focus:ring-2 focus:ring-red-500">
+                        <option value="">সব জেলা (All Districts)</option>
+                        <option value="dhaka">ঢাকা</option>
+                        <option value="chattogram">চট্টগ্রাম</option>
+                        <option value="rajshahi">রাজশাহী</option>
+                        <option value="khulna">খুলনা</option>
+                        <option value="sylhet">সিলেট</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="flex items-end">
+                    <button type="button" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-2.5 px-6 rounded-lg transition duration-200">
+                        ডোনার খুঁজুন
+                    </button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Donor List Directory -->
+        <section class="space-y-4">
+            <h3 class="text-xl font-bold text-slate-800">উপলব্ধ ডোনারদের তালিকা</h3>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Donor Card 1: Available -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex justify-between items-center hover:border-red-300 transition">
+                    <div class="space-y-1">
+                        <div class="flex items-center space-x-2">
+                            <h4 class="font-bold text-slate-900 text-lg">আরিফুল ইসলাম</h4>
+                            <span class="bg-emerald-100 text-emerald-800 text-xs px-2 py-0.5 rounded-full font-medium">Available</span>
+                        </div>
+                        <p class="text-sm text-slate-500">📍 ঢাকা (মিরপুর)</p>
+                        <p class="text-xs text-slate-400">সর্বশেষ রক্তদান: ১২০ দিন আগে</p>
+                    </div>
+                    <div class="text-right space-y-2">
+                        <span class="inline-block bg-red-100 text-red-700 font-black text-xl px-3 py-1 rounded-lg">O+</span>
+                        <a href="tel:+8801700000000" class="block bg-emerald-600 hover:bg-emerald-700 text-white text-xs px-4 py-2 rounded-lg font-bold transition text-center">
+                            📞 Call Now
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Donor Card 2: 90-Day Cooldown / Unavailable -->
+                <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-5 flex justify-between items-center opacity-60">
+                    <div class="space-y-1">
+                        <div class="flex items-center space-x-2">
+                            <h4 class="font-bold text-slate-900 text-lg">সাকিব হাসান</h4>
+                            <span class="bg-slate-200 text-slate-700 text-xs px-2 py-0.5 rounded-full font-medium">Cooldown (45d left)</span>
+                        </div>
+                        <p class="text-sm text-slate-500">📍 চট্টগ্রাম (হালিশহর)</p>
+                        <p class="text-xs text-slate-400">সর্বশেষ রক্তদান: ৪৫ দিন আগে</p>
+                    </div>
+                    <div class="text-right space-y-2">
+                        <span class="inline-block bg-slate-200 text-slate-700 font-black text-xl px-3 py-1 rounded-lg">AB+</span>
+                        <button disabled class="block bg-slate-300 text-slate-500 text-xs px-4 py-2 rounded-lg font-bold cursor-not-allowed">
+                            Unavailable
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Donor Registration Form -->
+        <section id="register" class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8 max-w-2xl mx-auto">
+            <h3 class="text-2xl font-bold text-slate-900 mb-2">রক্তদাতা হিসেবে রেজিস্ট্রেশন করুন</h3>
+            <p class="text-slate-600 text-sm mb-6">আপনার ছোট একটি ভূমিকা বাঁচাতে পারে একটি অমূল্য জীবন।</p>
+
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold text-slate-700 mb-1">পূর্ণ নাম</label>
+                    <input type="text" placeholder="আপনার নাম লিখুন" class="w-full border border-slate-300 rounded-lg px-4 py-2 text-slate-800 focus:ring-2 focus:ring-red-500 outline-none">
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">মোবাইল নম্বর</label>
+                        <input type="tel" placeholder="017XXXXXXXX" class="w-full border border-slate-300 rounded-lg px-4 py-2 text-slate-800 focus:ring-2 focus:ring-red-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">রক্তের গ্রুপ</label>
+                        <select class="w-full border border-slate-300 rounded-lg px-4 py-2 text-slate-800 focus:ring-2 focus:ring-red-500 outline-none">
+                            <option value="">নির্বাচন করুন</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">জেলা</label>
+                        <input type="text" placeholder="যেমন: ঢাকা" class="w-full border border-slate-300 rounded-lg px-4 py-2 text-slate-800 focus:ring-2 focus:ring-red-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-700 mb-1">সর্বশেষ রক্তদানের তারিখ</label>
+                        <input type="date" class="w-full border border-slate-300 rounded-lg px-4 py-2 text-slate-800 focus:ring-2 focus:ring-red-500 outline-none">
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 rounded-lg transition duration-200">
+                    রেজিস্ট্রেশন নিশ্চিত করুন
+                </button>
+            </form>
+        </section>
+
+        <!-- Sponsor / Ad Banner Section -->
+        <section class="bg-red-50 border border-red-100 rounded-xl p-6 text-center">
+            <p class="text-xs font-semibold text-red-500 uppercase tracking-wider mb-1">Sponsored Partner</p>
+            <h4 class="text-lg font-bold text-slate-800">পপুলার ডায়াগনস্টিক সেন্টার ও অ্যাম্বুলেন্স সার্ভিস</h4>
+            <p class="text-sm text-slate-600 mt-1">জরুরী অ্যাম্বুলেন্স এবং প্যাথলজি সেবার জন্য যোগাযোগ করুন: ০৯৬০০০০০০০</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-6 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 text-center text-sm">
+            <p>© 2026 DevDuo. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

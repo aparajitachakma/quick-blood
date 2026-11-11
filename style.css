@@ -1,0 +1,31 @@
+/* Tailwind CSS Base Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Helper Utilities & Styling */
+@layer components {
+  /* Dynamic availability status badge */
+  .badge-available {
+    @apply bg-emerald-100 text-emerald-800 text-xs px-2.5 py-0.5 rounded-full font-semibold;
+  }
+  
+  .badge-cooldown {
+    @apply bg-amber-100 text-amber-800 text-xs px-2.5 py-0.5 rounded-full font-semibold;
+  }
+
+  /* One-Click Call Button Style */
+  .btn-call {
+    @apply inline-flex items-center justify-center bg-emerald-600 hover:bg-emerald-700 active:scale-95 text-white font-bold text-sm px-4 py-2 rounded-lg transition-all duration-150 shadow-sm;
+  }
+
+  /* Form Input Base Style */
+  .form-input-custom {
+    @apply w-full bg-white border border-slate-300 rounded-lg px-4 py-2.5 text-slate-800 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition;
+  }
+}
+
+/* Base Body Styling */
+body {
+  -webkit-tap-highlight-color: transparent;
+}
