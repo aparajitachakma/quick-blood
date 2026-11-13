@@ -7,7 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Tailwind Dark Mode Config -->
     <script>
-        tailwind.config = { darkMode: 'class' }
+        tailwind.config = {
+            darkMode: 'class',
+        }
     </script>
 </head>
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 font-sans min-h-screen flex flex-col transition-colors duration-200">
@@ -28,7 +30,7 @@
                 </nav>
 
                 <!-- Dark Mode Button -->
-                <button onclick="toggleDarkMode()" class="p-2 rounded-lg bg-red-700 dark:bg-slate-800 text-white transition" title="Toggle Theme">
+                <button id="themeToggleBtn" onclick="toggleDarkMode()" class="p-2 rounded-lg bg-red-700 dark:bg-slate-800 text-white transition" title="Toggle Theme">
                     🌙
                 </button>
             </div>
@@ -181,3 +183,36 @@
 
     <!-- Script for Dark Mode -->
     <script>
+        const btn = document.getElementById('themeToggleBtn');
+
+        function updateButtonIcon() {
+            if (document.documentElement.classList.contains('dark')) {
+                btn.textContent = '☀️';
+            } else {
+                btn.textContent = '🌙';
+            }
+        }
+
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            updateButtonIcon();
+        }
+
+        // Initialize theme on load
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // Update icon after DOM is fully loaded
+        window.addEventListener('DOMContentLoaded', updateButtonIcon);
+    </script>
+</body>
+</html>
